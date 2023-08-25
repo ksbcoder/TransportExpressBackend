@@ -17,8 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IClient, Client>();
 builder.Services.AddScoped<IProduct, Product>();
 builder.Services.AddScoped<ITransport, Transport>();
+builder.Services.AddScoped<IStorageType, StorageType>();
 //builder.Services.AddScoped<IStorage, Storage>();
-//builder.Services.AddScoped<IStorageType, StorageType>();
 
 
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>
