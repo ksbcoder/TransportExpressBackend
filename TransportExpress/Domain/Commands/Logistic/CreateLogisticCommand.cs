@@ -2,13 +2,13 @@
 {
     public class CreateLogisticCommand
     {
-        public Guid ProductID { get; private set; }
-        public Guid ClientID { get; private set; }
-        public Guid StorageID { get; private set; }
-        public DateTime DeliveredAt { get; private set; }
-        public decimal QuantityProduct { get; private set; }
-        public decimal ShippingPrice { get; private set; }
-        public string? NumberPlate { get; private set; }
-        public string? FleetNumber { get; private set; }
+        public Guid ProductID { get; set; }
+        public Guid ClientID { get; set; }
+        public Guid StorageID { get; set; }
+        public DateTime DeliveredAt { get; set; }
+        public decimal QuantityProduct { get; set; }
+        public decimal ShippingPrice { get; set; }
+        public string? NumberPlate { get; set; }
+        public string? FleetNumber { get; set; }
     }
 }

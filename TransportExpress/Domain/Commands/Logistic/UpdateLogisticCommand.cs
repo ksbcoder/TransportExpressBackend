@@ -4,18 +4,18 @@ namespace TransportExpress.Domain.Commands.Logistic
 {
     public class UpdateLogisticCommand
     {
-        public Guid LogisticID { get; private set; }
-        public Guid ProductID { get; private set; }
-        public Guid ClientID { get; private set; }
-        public Guid StorageID { get; private set; }
-        public DateTime RegisteredAt { get; private set; }
-        public DateTime DeliveredAt { get; private set; }
-        public decimal QuantityProduct { get; private set; }
-        public decimal ShippingPrice { get; private set; }
-        public decimal Discount { get; private set; }
-        public string? NumberPlate { get; private set; }
-        public string? FleetNumber { get; private set; }
-        public string GuideNumber { get; private set; }
-        public Enums.StateEntity StateLogistic { get; private set; }
+        public Guid LogisticID { get; set; }
+        public Guid ProductID { get; set; }
+        public Guid ClientID { get; set; }
+        public Guid StorageID { get; set; }
+        public DateTime RegisteredAt { get; set; }
+        public DateTime DeliveredAt { get; set; }
+        public decimal QuantityProduct { get; set; }
+        public decimal ShippingPrice { get; set; }
+        public decimal Discount { get; set; }
+        public string? NumberPlate { get; set; }
+        public string? FleetNumber { get; set; }
+        public string GuideNumber { get; set; }
+        public Enums.StateEntity StateLogistic { get; set; }
     }
 }
