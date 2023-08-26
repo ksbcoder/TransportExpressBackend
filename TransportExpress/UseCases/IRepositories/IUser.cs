@@ -2,8 +2,8 @@
 
 namespace TransportExpress.UseCases.IRepositories
 {
-    public interface IClient
+    public interface IUser
     {
-        Task<List<Client>> GetClientsAsync();
+        Task<List<User>> GetUsersAsync();
     }
 }
