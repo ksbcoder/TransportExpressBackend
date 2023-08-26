@@ -2,6 +2,7 @@
 using TransportExpress.Domain.Common;
 using TransportExpress.Infrastructure.SQLAdapter.Gateway;
 using TransportExpress.UseCases.IRepositories;
+using TransportExpress.Wrappers;
 
 namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
 {
@@ -24,7 +25,9 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
                                    where transport.StateTransport == Enums.StateEntity.Active
                                    select transport).ToList();
             connection.Close();
-            return transportsFound;
+            return transportsFound.Count == 0 ?
+                throw new ApiException("There are no transports available.", 204) :
+                transportsFound;
         }
     }
 }

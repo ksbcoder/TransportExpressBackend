@@ -2,6 +2,7 @@
 using TransportExpress.Domain.Common;
 using TransportExpress.Infrastructure.SQLAdapter.Gateway;
 using TransportExpress.UseCases.IRepositories;
+using TransportExpress.Wrappers;
 
 namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
 {
@@ -23,7 +24,9 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
                                      where storageType.StateStorageType == Enums.StateEntity.Active
                                      select storageType).ToList();
             connection.Close();
-            return storageTypesFound;
+            return storageTypesFound.Count == 0 ?
+                throw new ApiException("There are no storage types available.", 204) :
+                storageTypesFound;
         }
     }
 }

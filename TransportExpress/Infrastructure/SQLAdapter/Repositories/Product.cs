@@ -2,6 +2,7 @@
 using TransportExpress.Domain.Common;
 using TransportExpress.Infrastructure.SQLAdapter.Gateway;
 using TransportExpress.UseCases.IRepositories;
+using TransportExpress.Wrappers;
 
 namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
 {
@@ -23,7 +24,9 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
                                  where product.StateProduct == Enums.StateEntity.Active
                                  select product).ToList();
             connection.Close();
-            return productsFound;
+            return productsFound.Count == 0 ?
+                throw new ApiException("There are no products available.", 204) :
+                productsFound;
         }
     }
 }

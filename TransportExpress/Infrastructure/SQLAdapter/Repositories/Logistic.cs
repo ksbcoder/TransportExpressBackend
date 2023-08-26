@@ -43,8 +43,8 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
                                   select logistic).ToList();
             connection.Close();
             return logisticsFound.Count == 0 ?
-            throw new ApiException("There are no logistics available.", 204) :
-            logisticsFound;
+                throw new ApiException("There are no logistics available.", 204) :
+                logisticsFound;
         }
 
         public Task<List<Domain.Entities.Logistic>> GetLogisticsByEntityIDAsync(string entityID)

@@ -2,6 +2,7 @@
 using TransportExpress.Domain.Common;
 using TransportExpress.Infrastructure.SQLAdapter.Gateway;
 using TransportExpress.UseCases.IRepositories;
+using TransportExpress.Wrappers;
 
 namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
 {
@@ -20,10 +21,12 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string query = $"SELECT * FROM {_tableNameClient}";
             var clientsFound = (from client in await connection.QueryAsync<Domain.Entities.Client>(query)
-                               where client.StateClient == Enums.StateEntity.Active
-                               select client).ToList();
+                                where client.StateClient == Enums.StateEntity.Active
+                                select client).ToList();
             connection.Close();
-            return clientsFound;
+            return clientsFound.Count == 0 ?
+                throw new ApiException("There are no clients available.", 204) :
+                clientsFound;
         }
     }
 }
