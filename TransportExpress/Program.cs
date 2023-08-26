@@ -3,6 +3,8 @@ using TransportExpress.Infrastructure.SQLAdapter;
 using TransportExpress.UseCases.IRepositories;
 using TransportExpress.Infrastructure.SQLAdapter.Repositories;
 using TransportExpress.Middlewares;
+using AutoMapper.Data;
+using TransportExpress.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,12 +15,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(ConfigurationProfile));
 
 builder.Services.AddScoped<IClient, Client>();
 builder.Services.AddScoped<IProduct, Product>();
 builder.Services.AddScoped<ITransport, Transport>();
 builder.Services.AddScoped<IStorageType, StorageType>();
 builder.Services.AddScoped<IStorage, Storage>();
+builder.Services.AddScoped<ILogistic, Logistic>();
 
 
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>
