@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Ardalis.GuardClauses;
+using Dapper;
 using TransportExpress.Domain.Common;
 using TransportExpress.Domain.Entities;
 using TransportExpress.Infrastructure.SQLAdapter.Gateway;
@@ -15,6 +16,27 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
         public TransportImplementation(IDbConnectionBuilder dbConnectionBuilder)
         {
             _dbConnectionBuilder = dbConnectionBuilder;
+        }
+
+        public async Task<Transport> CreateTransportAsync(Transport transport)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            Transport.SetDetailsTransport(transport);
+
+            Guard.Against.Null(transport, nameof(transport));
+            Guard.Against.NullOrEmpty(transport.DescriptionTransport, nameof(transport.DescriptionTransport));
+            Guard.Against.Null(transport.CapacityTransport, nameof(transport.CapacityTransport));
+            Guard.Against.NegativeOrZero(transport.CapacityTransport, nameof(transport.CapacityTransport));
+            Guard.Against.EnumOutOfRange(transport.StateTransport, nameof(transport.StateTransport));
+
+            string query = $"INSERT INTO {_tableNameTransport} (DescriptionTransport, CapacityTransport, StateTransport) " +
+                $"VALUES (@DescriptionTransport, @CapacityTransport, @StateTransport)";
+
+            var transportCreated = await connection.ExecuteAsync(query, transport);
+            connection.Close();
+            return transportCreated == 0 ?
+                throw new ApiException("Transport not created.", 400) :
+                transport;
         }
 
         public async Task<List<Transport>> GetTransportsAsync()
