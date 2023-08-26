@@ -48,12 +48,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(config => config.AddDataReaderMapping(), typeof(ConfigurationProfile));
 
 // Configuration SQLAdapter
-builder.Services.AddScoped<IUser, User>();
-builder.Services.AddScoped<IProduct, Product>();
-builder.Services.AddScoped<ITransport, Transport>();
-builder.Services.AddScoped<IStorageType, StorageType>();
-builder.Services.AddScoped<IStorage, Storage>();
-builder.Services.AddScoped<ILogistic, Logistic>();
+builder.Services.AddScoped<IUser, UserImplementation>();
+builder.Services.AddScoped<IProduct, ProductImplementation>();
+builder.Services.AddScoped<ITransport, TransportImplementation>();
+builder.Services.AddScoped<IStorageType, StorageTypeImplementation>();
+builder.Services.AddScoped<IStorage, StorageImplementation>();
+builder.Services.AddScoped<ILogistic, LogisticImplementation>();
 
 // Configuration SQL connection
 builder.Services.AddTransient<IDbConnectionBuilder>(e =>

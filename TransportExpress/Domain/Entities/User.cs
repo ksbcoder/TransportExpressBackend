@@ -5,7 +5,7 @@ namespace TransportExpress.Domain.Entities
     public class User
     {
         public Guid UserID { get; private set; }
-        public string UidUSer { get; private set; }
+        public string UidUser { get; private set; }
         public string NameUser { get; private set; }
         public string Identification { get; private set; }
         public string Phone { get; private set; }
@@ -23,7 +23,7 @@ namespace TransportExpress.Domain.Entities
         }
         public void SetUidUser(string uidUser)
         {
-            UidUSer = uidUser;
+            UidUser = uidUser;
         }
         public void SetNameUser(string nameUser)
         {
@@ -52,6 +52,14 @@ namespace TransportExpress.Domain.Entities
         public void SetStateUser(Enums.StateEntity stateUser)
         {
             StateUser = stateUser;
+        }
+        #endregion
+
+        #region Factory
+        public static User SetDetailsToUser(User user)
+        {
+            user.StateUser = Enums.StateEntity.Active;
+            return user;
         }
         #endregion
     }

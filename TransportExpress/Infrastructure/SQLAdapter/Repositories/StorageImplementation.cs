@@ -1,26 +1,27 @@
 ﻿using Dapper;
 using TransportExpress.Domain.Common;
+using TransportExpress.Domain.Entities;
 using TransportExpress.Infrastructure.SQLAdapter.Gateway;
 using TransportExpress.UseCases.IRepositories;
 using TransportExpress.Wrappers;
 
 namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
 {
-    public class Storage : IStorage
+    public class StorageImplementation : IStorage
     {
         private readonly IDbConnectionBuilder _dbConnectionBuilder;
         private readonly string _tableNameStorage = "Storage";
 
-        public Storage(IDbConnectionBuilder dbConnectionBuilder)
+        public StorageImplementation(IDbConnectionBuilder dbConnectionBuilder)
         {
             _dbConnectionBuilder = dbConnectionBuilder;
         }
 
-        public async Task<List<Domain.Entities.Storage>> GetStoragesAsync()
+        public async Task<List<Storage>> GetStoragesAsync()
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string query = $"SELECT * FROM {_tableNameStorage}";
-            var storagesFound = (from storage in await connection.QueryAsync<Domain.Entities.Storage>(query)
+            var storagesFound = (from storage in await connection.QueryAsync<Storage>(query)
                                  where storage.StateStorage == Enums.StateEntity.Active
                                  select storage).ToList();
             connection.Close();
