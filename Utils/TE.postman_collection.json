@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "6becb957-5762-43b4-9e79-937809e6b8fd",
+		"name": "TE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26784219"
+	},
+	"item": [
+		{
+			"name": "https://localhost:7189/api/Authentication/validate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uidUSer\": \"N7daGI7budgGdWHswJUpBmS2XJw2\",\r\n  \"email\": \"AdminA@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7189/api/Authentication/validate"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Logistic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7189/api/Logistic"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Logistic/ID?logisticID=5d45c47e-b9c4-4693-857a-d348c21848ce",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/Logistic/ID?logisticID=f75d5c79-5873-40e8-8479-b1c18485d947",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Logistic",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "logisticID",
+							"value": "f75d5c79-5873-40e8-8479-b1c18485d947"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Logistic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productID\": \"52418ec0-ab7c-477a-a49e-7f2eaa6e44cb\",\r\n  \"userID\": \"7616b0c3-d518-47c4-b716-fd12031f0e7d\",\r\n  \"storageID\": \"027213b7-156d-4bd2-b687-45bd5a5bd91e\",\r\n  \"deliveredAt\": \"2023-08-30\",\r\n  \"quantityProduct\": 50,\r\n  \"shippingPrice\": 1000,\r\n  \"numberPlate\": \"\",\r\n  \"fleetNumber\": \"XYZ5678Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7189/api/Logistic"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Logistic/ID?logisticID=0F95D4CD-DC64-4D82-AED6-E7606CE075E9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"logisticID\": \"f75d5c79-5873-40e8-8479-b1c18485d947\",\r\n  \"productID\": \"84ebbe40-0ad4-41c5-8cdd-9e34bdf8bd8c\",\r\n  \"userID\": \"7616b0c3-d518-47c4-b716-fd12031f0e7d\",\r\n  \"storageID\": \"f1c19f96-e8d3-4602-a43a-a7a05c5bb37e\",\r\n  \"registeredAt\": \"2023-08-27T00:44:01.964Z\",\r\n  \"deliveredAt\": \"2023-08-30\",\r\n  \"quantityProduct\": 9,\r\n  \"shippingPrice\": 1000,\r\n  \"discount\": 30.00,\r\n  \"numberPlate\": \"ABC123\",\r\n  \"fleetNumber\": \"\",\r\n  \"guideNumber\": \"xfrx4FOFey\",\r\n  \"stateLogistic\": 1\r\n}\r\n\r\n/*{\r\n  \"logisticID\": \"0F95D4CD-DC64-4D82-AED6-E7606CE075E9\",\r\n  \"productID\": \"52418ec0-ab7c-477a-a49e-7f2eaa6e44cb\",\r\n  \"userID\": \"7616b0c3-d518-47c4-b716-fd12031f0e7d\",\r\n  \"storageID\": \"027213b7-156d-4bd2-b687-45bd5a5bd91e\",\r\n  \"registeredAt\": \"2023-08-27T00:44:01.964Z\",\r\n  \"deliveredAt\": \"2023-08-30\",\r\n  \"quantityProduct\": 9,\r\n  \"shippingPrice\": 1000,\r\n  \"discount\": 30.00,\r\n  \"numberPlate\": \"\",\r\n  \"fleetNumber\": \"XYZ5678Z\",\r\n  \"guideNumber\": \"xfrx4FOFey\",\r\n  \"stateLogistic\": 1\r\n}*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7189/api/Logistic/ID?logisticID=f75d5c79-5873-40e8-8479-b1c18485d947",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Logistic",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "logisticID",
+							"value": "f75d5c79-5873-40e8-8479-b1c18485d947"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Logistic/ID?logisticID=0F95D4CD-DC64-4D82-AED6-E7606CE075E9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/Logistic/ID?logisticID=d5aa5594-d4d6-4f43-979c-41f5e20b03d9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Logistic",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "logisticID",
+							"value": "d5aa5594-d4d6-4f43-979c-41f5e20b03d9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Logistic/Filter?Product=84ebbe40-0ad4-41c5-8cdd-9e34bdf8bd8c&Client=7616b0c3-d518-47c4-b716-fd12031f0e7d&Logistic=0f95d4cd-dc64-4d82-aed6-e7606ce075e9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/Logistic/Filter?Product=84ebbe40-0ad4-41c5-8cdd-9e34bdf8bd8c&Client=7616b0c3-d518-47c4-b716-fd12031f0e7d&Logistic=f75d5c79-5873-40e8-8479-b1c18485d947",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Logistic",
+						"Filter"
+					],
+					"query": [
+						{
+							"key": "Product",
+							"value": "84ebbe40-0ad4-41c5-8cdd-9e34bdf8bd8c"
+						},
+						{
+							"key": "Client",
+							"value": "7616b0c3-d518-47c4-b716-fd12031f0e7d"
+						},
+						{
+							"key": "Storage",
+							"value": "027213b7-156d-4bd2-b687-45bd5a5bd91e",
+							"disabled": true
+						},
+						{
+							"key": "Logistic",
+							"value": "f75d5c79-5873-40e8-8479-b1c18485d947"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7189/api/User"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/User/uidUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/User/uid?uidUser=N7daGI7budgGdWHswJUpBmS2XJw1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"User",
+						"uid"
+					],
+					"query": [
+						{
+							"key": "uidUser",
+							"value": "N7daGI7budgGdWHswJUpBmS2XJw1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/User/ID?userID=7616B0C3-D518-47C4-B716-FD12031F0E7D",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/User/ID?userID=7616B0C3-D518-47C4-B716-FD12031F0E7D",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"User",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "userID",
+							"value": "7616B0C3-D518-47C4-B716-FD12031F0E7D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uidUser\": \"N7daGI7budgGdWHswJUpBmS2XJw0\",\r\n  \"nameUser\": \"Juan\",\r\n  \"identification\": \"1237461234\",\r\n  \"phone\": \"5559874\",\r\n  \"email\": \"juan@test.com\",\r\n  \"address\": \"Calle 1\",\r\n  \"typeUser\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7189/api/User"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7189/api/Product"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Product/ID?productID=52418ec0-ab7c-477a-a49e-7f2eaa6e44cb",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/Product/ID?productID=52418ec0-ab7c-477a-a49e-7f2eaa6e44cb",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Product",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "productID",
+							"value": "52418ec0-ab7c-477a-a49e-7f2eaa6e44cb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"transportID\": \"eb08f77a-e6dd-48ab-8141-42e4a92d1816\",\r\n  \"nameProduct\": \"Prueba\",\r\n  \"descriptionProduct\": \"Prueba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7189/api/Product"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Transport",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7189/api/Transport"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Transport/ID?transportID=eb08f77a-e6dd-48ab-8141-42e4a92d1816",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/Transport/ID?transportID=eb08f77a-e6dd-48ab-8141-42e4a92d1816",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Transport",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "transportID",
+							"value": "eb08f77a-e6dd-48ab-8141-42e4a92d1816"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Transport",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"descriptionTransport\": \"Aereo\",\r\n  \"capacityTransport\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7189/api/Transport"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Storage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7189/api/Storage"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Storage/ID?storageID=027213b7-156d-4bd2-b687-45bd5a5bd91e",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7189/api/Storage/ID?storageID=027213b7-156d-4bd2-b687-45bd5a5bd91e",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7189",
+					"path": [
+						"api",
+						"Storage",
+						"ID"
+					],
+					"query": [
+						{
+							"key": "storageID",
+							"value": "027213b7-156d-4bd2-b687-45bd5a5bd91e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/Storage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"storageTypeID\": \"12b19f03-2fb4-48f0-98f9-4cd68f0ef4d2\",\r\n  \"nameStorage\": \"Almacén Secundario TE\",\r\n  \"capacityStorage\": 2000,\r\n  \"location\": \"Calle 80\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7189/api/Storage"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:7189/api/StorageType",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJBZG1pbkFAdGVzdC5jb20iLCJuYmYiOjE2OTMxMTQzODksImV4cCI6MTY5MzExNzk4OSwiaWF0IjoxNjkzMTE0Mzg5fQ.tz7B8roFaqfIOmieTSFD6mOIV2WoiCte0ekRGG4odp4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7189/api/StorageType"
+			},
+			"response": []
+		}
+	]
+}
