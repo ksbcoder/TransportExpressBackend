@@ -145,7 +145,6 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
                 query += $"WHERE {conditions}";
             }
 
-            Console.WriteLine(query);
             var logisticsFound = (from logistic in await connection.QueryAsync<Logistic>(query)
                                   where logistic.StateLogistic == Enums.StateEntity.Active
                                   select logistic).ToList();

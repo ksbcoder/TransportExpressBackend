@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportExpress", "TransportExpress.csproj", "{174E1A01-EAB9-46A0-9383-65D80B367C38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportExpress", "TransportExpress.csproj", "{174E1A01-EAB9-46A0-9383-65D80B367C38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportExpressTest", "..\TransportExpressTest\TransportExpressTest.csproj", "{0F182F07-97AD-4F1F-99F8-A936D68B608E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{174E1A01-EAB9-46A0-9383-65D80B367C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{174E1A01-EAB9-46A0-9383-65D80B367C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{174E1A01-EAB9-46A0-9383-65D80B367C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F182F07-97AD-4F1F-99F8-A936D68B608E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F182F07-97AD-4F1F-99F8-A936D68B608E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F182F07-97AD-4F1F-99F8-A936D68B608E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F182F07-97AD-4F1F-99F8-A936D68B608E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
