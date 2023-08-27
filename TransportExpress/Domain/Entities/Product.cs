@@ -34,5 +34,13 @@ namespace TransportExpress.Domain.Entities
             StateProduct = stateProduct;
         }
         #endregion
+
+        #region Factory
+        public static Product SetDetailsProduct(Product product)
+        {
+            product.SetStateProduct(Enums.StateEntity.Active);
+            return product;
+        }
+        #endregion
     }
 }
