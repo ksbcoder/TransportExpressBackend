@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TransportExpress.Domain.Commands.Product;
 using TransportExpress.Domain.Entities;
@@ -7,6 +8,7 @@ using TransportExpress.UseCases.IRepositories;
 namespace TransportExpress.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class ProductController : ControllerBase
     {
