@@ -8,6 +8,7 @@ using TransportExpress.UseCases.IRepositories;
 namespace TransportExpress.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -20,7 +21,6 @@ namespace TransportExpress.Controllers
             _mapper = mapper;
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<List<User>> GetClients()
         {
