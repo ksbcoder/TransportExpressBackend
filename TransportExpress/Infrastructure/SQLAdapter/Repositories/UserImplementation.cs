@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using Dapper;
 using TransportExpress.Domain.Common;
 using TransportExpress.Domain.Entities;
@@ -12,10 +13,16 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
     {
         private readonly IDbConnectionBuilder _dbConnectionBuilder;
         private readonly string _tableNameUser = "Users";
+        private readonly IMapper _mapper;
 
         public UserImplementation(IDbConnectionBuilder dbConnectionBuilder)
         {
             _dbConnectionBuilder = dbConnectionBuilder;
+        }
+        public UserImplementation(IDbConnectionBuilder dbConnectionBuilder, IMapper mapper)
+        {
+            _dbConnectionBuilder = dbConnectionBuilder;
+            _mapper = mapper;
         }
 
         public async Task<User> CreateUser(User user)
@@ -46,6 +53,18 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
                 user;
         }
 
+        public async Task<User> GetUserByIDAsync(string userID)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string query = $"SELECT * FROM {_tableNameUser}";
+            var userFound = (from user in connection.Query<User>(query)
+                             where user.StateUser == Enums.StateEntity.Active
+                                && user.UserID == Guid.Parse(userID)
+                             select user).SingleOrDefault();
+            connection.Close();
+            return userFound ?? throw new ApiException("User not found.", 404);
+        }
+
         public async Task<User> GetUserByUidUserAsync(string uidUser)
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
@@ -57,16 +76,17 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
             return userFound ?? throw new ApiException("User not found.", 404);
         }
 
-        public async Task<List<User>> GetUsersAsync()
+        public async Task<List<User>> GetClientsAsync()
         {
             var connection = await _dbConnectionBuilder.CreateConnectionAsync();
             string query = $"SELECT * FROM {_tableNameUser}";
             var usersFound = (from user in await connection.QueryAsync<User>(query)
                               where user.StateUser == Enums.StateEntity.Active
+                                && user.TypeUser == Enums.TypeUser.Client
                               select user).ToList();
             connection.Close();
             return usersFound.Count == 0 ?
-                throw new ApiException("There are no users available.", 204) :
+                throw new ApiException("There are no clients available.", 204) :
                 usersFound;
         }
     }

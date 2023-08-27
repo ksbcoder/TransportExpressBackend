@@ -24,6 +24,11 @@ namespace TransportExpress.Controllers
         {
             return await _storageUseCase.GetStoragesAsync();
         }
+        [HttpGet("ID")]
+        public async Task<Storage> GetStorageByID(string storageID)
+        {
+            return await _storageUseCase.GetStorageByIDAsync(storageID);
+        }
 
         [HttpPost]
         public async Task<Storage> CreateStorage([FromBody] CreateStorageCommand storage)

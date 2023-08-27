@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using Dapper;
 using TransportExpress.Domain.Common;
 using TransportExpress.Domain.Entities;
@@ -12,10 +13,12 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
     {
         private readonly IDbConnectionBuilder _dbConnectionBuilder;
         private readonly string _tableNameStorage = "Storage";
+        private readonly IMapper _mapper;
 
-        public StorageImplementation(IDbConnectionBuilder dbConnectionBuilder)
+        public StorageImplementation(IDbConnectionBuilder dbConnectionBuilder, IMapper mapper)
         {
             _dbConnectionBuilder = dbConnectionBuilder;
+            _mapper = mapper;
         }
 
         public async Task<Storage> CreateStorageAsync(Storage storage)
@@ -41,6 +44,18 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
             return storageCreated == 0 ?
                 throw new ApiException("Storage not created.", 400) :
                 storage;
+        }
+
+        public async Task<Storage> GetStorageByIDAsync(string storageID)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string query = $"SELECT * FROM {_tableNameStorage}";
+            var storageFound = (from storage in await connection.QueryAsync<Storage>(query)
+                                where storage.StateStorage == Enums.StateEntity.Active
+                                    && storage.StorageID == Guid.Parse(storageID)
+                                select storage).FirstOrDefault();
+            connection.Close();
+            return storageFound ?? throw new ApiException("Storage not found.", 404);
         }
 
         public async Task<List<Storage>> GetStoragesAsync()
