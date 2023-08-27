@@ -24,6 +24,11 @@ namespace TransportExpress.Controllers
         {
             return await _productUseCase.GetProductsAsync();
         }
+        [HttpGet("ID")]
+        public async Task<Product> GetProductByID(string productID)
+        {
+            return await _productUseCase.GetProductByIDAsync(productID);
+        }
 
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct([FromBody] CreateProductCommand product)

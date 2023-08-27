@@ -3,7 +3,7 @@
     public class CreateLogisticCommand
     {
         public Guid ProductID { get; set; }
-        public Guid ClientID { get; set; }
+        public Guid UserID { get; set; }
         public Guid StorageID { get; set; }
         public DateTime DeliveredAt { get; set; }
         public decimal QuantityProduct { get; set; }

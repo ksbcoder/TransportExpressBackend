@@ -4,6 +4,7 @@ using TransportExpress.Domain.Commands.Product;
 using TransportExpress.Domain.Commands.Storage;
 using TransportExpress.Domain.Commands.Transport;
 using TransportExpress.Domain.Commands.User;
+using TransportExpress.Domain.DTO.Logistic;
 using TransportExpress.Domain.Entities;
 
 namespace TransportExpress.AutoMapper
@@ -32,6 +33,7 @@ namespace TransportExpress.AutoMapper
             #region Logistic
             CreateMap<Logistic, CreateLogisticCommand>().ReverseMap();
             CreateMap<Logistic, UpdateLogisticCommand>().ReverseMap();
+            CreateMap<Logistic, LogisticDTO>().ReverseMap();
             #endregion
         }
     }

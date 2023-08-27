@@ -1,4 +1,5 @@
 ﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using Dapper;
 using TransportExpress.Domain.Common;
 using TransportExpress.Domain.Entities;
@@ -12,10 +13,12 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
     {
         private readonly IDbConnectionBuilder _dbConnectionBuilder;
         private readonly string _tableNameTransport = "Transport";
+        private readonly IMapper _mapper;
 
-        public TransportImplementation(IDbConnectionBuilder dbConnectionBuilder)
+        public TransportImplementation(IDbConnectionBuilder dbConnectionBuilder, IMapper mapper)
         {
             _dbConnectionBuilder = dbConnectionBuilder;
+            _mapper = mapper;
         }
 
         public async Task<Transport> CreateTransportAsync(Transport transport)
@@ -37,6 +40,18 @@ namespace TransportExpress.Infrastructure.SQLAdapter.Repositories
             return transportCreated == 0 ?
                 throw new ApiException("Transport not created.", 400) :
                 transport;
+        }
+
+        public async Task<Transport> GetTransportByIDAsync(string transportID)
+        {
+            var connection = await _dbConnectionBuilder.CreateConnectionAsync();
+            string query = $"SELECT * FROM {_tableNameTransport}";
+            var transportFound = (from transport in await connection.QueryAsync<Transport>(query)
+                                  where transport.TransportID == Guid.Parse(transportID) 
+                                  && transport.StateTransport == Enums.StateEntity.Active
+                                  select transport).SingleOrDefault();
+            connection.Close();
+            return transportFound ?? throw new ApiException("Transport not found.", 404);
         }
 
         public async Task<List<Transport>> GetTransportsAsync()

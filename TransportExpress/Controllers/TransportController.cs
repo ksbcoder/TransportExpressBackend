@@ -24,7 +24,11 @@ namespace TransportExpress.Controllers
         {
             return await _transportUseCase.GetTransportsAsync();
         }
-
+        [HttpGet("ID")]
+        public async Task<Transport> GetTransportByID(string transportID)
+        {
+            return await _transportUseCase.GetTransportByIDAsync(transportID);
+        }
         [HttpPost]
         public async Task<ActionResult<Transport>> CreateTransport([FromBody] CreateTransportCommand transport)
         {

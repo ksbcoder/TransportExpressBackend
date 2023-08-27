@@ -22,15 +22,21 @@ namespace TransportExpress.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<List<User>> GetUsers()
+        public async Task<List<User>> GetClients()
         {
-            return await _userUseCase.GetUsersAsync();
+            return await _userUseCase.GetClientsAsync();
         }
 
-        [HttpGet("uidUser")]
+        [HttpGet("uid")]
         public async Task<User> GetUserByUidUser(string uidUser)
         {
             return await _userUseCase.GetUserByUidUserAsync(uidUser);
+        }
+
+        [HttpGet("ID")]
+        public async Task<User> GetUserByID(string userID)
+        {
+            return await _userUseCase.GetUserByIDAsync(userID);
         }
 
         [HttpPost]

@@ -20,5 +20,10 @@ namespace TransportExpress.Controllers
         {
             return await _storageTypeUseCase.GetStorageTypesAsync();
         }
+        [HttpGet("ID")]
+        public async Task<StorageType> GetStorageTypeByID(string storageTypeID)
+        {
+            return await _storageTypeUseCase.GetStorageTypeByIDAsync(storageTypeID);
+        }
     }
 }
