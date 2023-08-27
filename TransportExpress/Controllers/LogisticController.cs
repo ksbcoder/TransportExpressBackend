@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TransportExpress.Domain.Commands.Logistic;
 using TransportExpress.Domain.DTO.Logistic;
@@ -9,6 +10,7 @@ using TransportExpress.UseCases.IRepositories;
 namespace TransportExpress.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class LogisticController : ControllerBase
     {

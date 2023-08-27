@@ -9,8 +9,8 @@
         }
         public enum TypeUser
         {
-            Admin = 1,
-            Client = 2
+            Client = 1,
+            Admin = 2
         }
     }
 }
