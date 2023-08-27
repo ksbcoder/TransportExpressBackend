@@ -24,7 +24,7 @@ namespace TransportExpress.Controllers
 
         [HttpPost]
         [Route("validate")]
-        public IActionResult Validate([FromBody] AuthenticateUserCommand userToValidate)
+        public string Validate([FromBody] AuthenticateUserCommand userToValidate)
         {
             if (userToValidate != null)
             {
@@ -32,7 +32,7 @@ namespace TransportExpress.Controllers
                 var user = new UserImplementation(_dbConnectionBuilder).GetUserByUidUserAsync(userToValidate.UidUSer).Result;
                 if (user == null)
                 {
-                    return StatusCode(401, new { token = "" });
+                    return "";
                 }
 
                 var keyBytes = Encoding.ASCII.GetBytes(secretKey);
@@ -43,7 +43,7 @@ namespace TransportExpress.Controllers
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = claims,
-                    Expires = DateTime.UtcNow.AddHours(1),
+                    Expires = DateTime.UtcNow.AddHours(3),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
                 };
 
@@ -52,11 +52,11 @@ namespace TransportExpress.Controllers
 
                 string createdToken = tokenHandler.WriteToken(tokenConfig);
 
-                return StatusCode(200, new { token = createdToken });
+                return  createdToken;
             }
             else
             {
-                return StatusCode(401, new { token = "" });
+                return "";
             }
         }
     }

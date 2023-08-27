@@ -14,6 +14,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 // Configuration CORS
+builder.Services.AddCors(p => p.AddPolicy("devcors", builder =>
+{
+    builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+    builder.WithOrigins("https://transport3xpress.firebaseapp.com").AllowAnyMethod().AllowAnyHeader();
+    builder.WithOrigins("https://transport3xpress.web.app").AllowAnyMethod().AllowAnyHeader();
+}));
 
 // Configuration JWT authentication
 #region JWT
@@ -71,6 +77,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// CORS
+app.UseCors("devcors");
 
 // JWT Authentication
 app.UseAuthentication();
