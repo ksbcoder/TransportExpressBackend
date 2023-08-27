@@ -39,5 +39,13 @@ namespace TransportExpress.Domain.Entities
             StateStorage = stateStorage;
         }
         #endregion
+
+        #region Factory
+        public static Storage SetDetailsStorage(Storage storage)
+        {
+            storage.SetStateStorage(Enums.StateEntity.Active);
+            return storage;
+        }
+        #endregion
     }
 }

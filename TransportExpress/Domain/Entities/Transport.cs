@@ -29,5 +29,13 @@ namespace TransportExpress.Domain.Entities
             StateTransport = stateTransport;
         }
         #endregion  
+
+        #region Factory
+        public static Transport SetDetailsTransport(Transport transport)
+        {
+            transport.SetStateTransport(Enums.StateEntity.Active);
+            return transport;
+        }
+        #endregion
     }
 }

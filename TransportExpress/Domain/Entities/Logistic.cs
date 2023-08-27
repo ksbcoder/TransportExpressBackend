@@ -1,4 +1,5 @@
 ﻿using TransportExpress.Domain.Common;
+using TransportExpress.Domain.Common.Handlers;
 
 namespace TransportExpress.Domain.Entities
 {
@@ -6,7 +7,7 @@ namespace TransportExpress.Domain.Entities
     {
         public Guid LogisticID { get; private set; }
         public Guid ProductID { get; private set; }
-        public Guid ClientID { get; private set; }
+        public Guid UserID { get; private set; }
         public Guid StorageID { get; private set; }
         public DateTime RegisteredAt { get; private set; }
         public DateTime DeliveredAt { get; private set; }
@@ -29,9 +30,9 @@ namespace TransportExpress.Domain.Entities
         {
             ProductID = productID;
         }
-        public void SetClientID(Guid clientID)
+        public void SetUserID(Guid userID)
         {
-            ClientID = clientID;
+            UserID = userID;
         }
         public void SetStorageID(Guid storageID)
         {
@@ -72,6 +73,16 @@ namespace TransportExpress.Domain.Entities
         public void SetStateLogistic(Enums.StateEntity stateLogistic)
         {
             StateLogistic = stateLogistic;
+        }
+        #endregion
+
+        #region Factory
+        public static Logistic SetDetailsLogistic(Logistic logistic)
+        {
+            logistic.SetRegisteredAt(DateTime.Now);
+            logistic.SetGuideNumber(LogisticHandler.GenerateGuideNumber(10));
+            logistic.SetStateLogistic(Enums.StateEntity.Active);
+            return logistic;
         }
         #endregion
     }
